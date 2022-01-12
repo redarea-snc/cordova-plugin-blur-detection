@@ -9,7 +9,7 @@
         <clobbers target="BlurDetect" />
     </js-module>
 
-    <!-- android -->  
+    <!-- android -->
     <platform name="android">
         <config-file target="res/xml/config.xml" parent="/*">
             <feature name="BlurDetectPlugin" >
@@ -26,6 +26,19 @@
             <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
             <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
         </config-file>
-        
+
+    </platform>
+    <platform name="ios">
+        <config-file target="config.xml" parent="/*">
+            <feature name="BlurDetectPlugin">
+                <param name="ios-package" value="BlurDetectPlugin" />
+            </feature>
+        </config-file>
+
+        <framework src="MetalKit.framework" />
+        <framework src="MetalPerformanceShaders.framework" />
+
+        <header-file src="src/ios/BlurDetectPlugin.h" />
+        <source-file src="src/ios/BlurDetectPlugin.m" />
     </platform>
 </plugin>
